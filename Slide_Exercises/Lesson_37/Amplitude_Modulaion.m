@@ -15,7 +15,7 @@ Am = 1;
 phi = pi/4;
 fa = 10;
 Ta=1/fa;
-t=0:5e-3:1;
+t=0:0.001:1;
 sm= 2.*Am*cos(2*pi*fa*t + phi ) + Am*cos(3*pi*fa*t);
 subplot(3,1,1)
 plot(t,sm)
