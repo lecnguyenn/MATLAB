@@ -14,7 +14,7 @@ ylabel('Amplitude');
 title('Message Signal');
 grid on;
 mf = 10;
-sc= cos(2*pi*fc*t) + cos(3*pi*fc*t);
+sc= 2.*cos(2*pi*fc*t) + cos(3*pi*fc*t);
 subplot(3,1,2);
 plot(t,sc);
 xlabel('Time');
