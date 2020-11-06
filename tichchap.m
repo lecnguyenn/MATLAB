@@ -1,25 +1,25 @@
-clc;clear all;close all;
-x=input('x(n)= ');
-h=input('h(x)= ');
-n1= length(x);
-n2= length(h);
-N =n1+n2-1;
-x=[x,zeros(1,N-n1)];
-h=[h,zeros(1,N-n2)];
-y=zeros(1,N);
-for n=1:N
-    for k=1:n
-        y(n)=y(n) + x(k)*h(n-k+1);
-    end
-end
+n1=-8:8;
+% x[n]=u[n]-u[n-4]
+x=((n1)>=0)-((n1-4)>=0);
+subplot(3,1,1)
+hndl(1)=stem(n1,x);grid
+title('x[n]')
+
+n2=-5:5;
+h=((1-n2/4).*(n2>=0).*(n2<=4));
+subplot(3,1,2)
+hndl(2)=stem(n2,h);grid
+title('h[n]')
+
+n=n1(1)+n2(1):n1(end)+n2(end);
+
+y=conv(x,h);
 disp(y);
-ny=0:N-1;
-subplot(3,1,1);
-stem(ny,x);
-subplot(3,1,2);
-stem(ny,h);
-subplot(3,1,3);
-stem(ny,y);
+subplot(3,1,3)
+hndl(3)=stem(n,y);grid
+xlim([n(1) n(end)])
+title('h[n]*x[n]')
+set(hndl,'LineWidth',2)
 
 
         
